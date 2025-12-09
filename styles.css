@@ -1,0 +1,392 @@
+/* --- Variáveis de Design --- */
+:root {
+  --primary: #0d6efd; /* Azul vibrante */
+  --primary-dark: #0a58ca;
+  --secondary: #6c757d;
+  --dark-blue: #0b2545; /* Azul marinho corporativo */
+  --light-blue: #f0f7ff;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --white: #ffffff;
+  --font-main: 'Poppins', sans-serif;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+/* --- Navbar (AGORA AZUL) --- */
+.navbar {
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  /* Fundo Azul Escuro Translucido */
+  background: rgba(11, 37, 69, 0.95); 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar.scrolled {
+  background: var(--dark-blue); /* Azul sólido ao rolar */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 0.7rem 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: #fff !important; /* Texto Branco */
+}
+
+.nav-link {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85) !important; /* Branco suave */
+  margin: 0 0.5rem;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* Ajuste do botão hambúrguer para branco */
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.5);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.btn-cta {
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  background-color: var(--primary);
+  border: none;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  background-color: var(--primary-dark);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%);
+  overflow: hidden;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.decorative-blob {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0.1;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: -1;
+  animation: blob-bounce 8s infinite ease-in-out alternate;
+}
+
+@keyframes blob-bounce {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-20px, 20px) scale(1.1); }
+}
+
+/* --- Serviços --- */
+.section-padding {
+  padding: 80px 0;
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.ls-2 {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+.service-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg) !important;
+  border-color: transparent;
+}
+
+.service-card .icon-box {
+  transition: transform 0.3s;
+}
+
+.service-card:hover .icon-box {
+  transform: scale(1.1) rotate(-5deg);
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* --- Galeria --- */
+.gallery-item {
+  height: 250px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 110, 253, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* --- Orçamento --- */
+.bg-gradient-primary {
+  background: linear-gradient(160deg, var(--dark-blue) 0%, #1a3c66 100%);
+}
+
+#orcamentoForm .form-control, 
+#orcamentoForm .form-select {
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  background-color: #f8fafc;
+}
+
+#orcamentoForm .form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+  background-color: #fff;
+}
+
+#orcamentoForm textarea {
+  resize: none;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #051429;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.footer h4, .footer h5 {
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer a:hover {
+  opacity: 0.8;
+}
+
+/* --- Estilos da Logo --- */
+.nav-logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Deixa a logo branca na navbar azul */
+}
+
+.footer-logo-img {
+  max-height: 80px;
+  width: auto;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* --- Botões Flutuantes (WhatsApp + Chat) --- */
+.floating-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Botão WhatsApp */
+.wa-btn {
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-decoration: none;
+}
+.wa-btn:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+/* Botão Abrir Chat FAQ */
+.chat-trigger-btn {
+  background: var(--primary);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+.chat-trigger-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary-dark);
+}
+
+/* --- Janela do Chat (FAQ) --- */
+.chat-window {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 320px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  z-index: 10000;
+  display: none; /* Oculto por padrão */
+  overflow: hidden;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+}
+
+.chat-window.active {
+  display: flex;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+  background: var(--dark-blue);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h6 { margin: 0; font-size: 0.95rem; }
+.btn-close-chat { background: none; border: none; color: white; cursor: pointer; }
+
+.chat-body {
+  padding: 15px;
+  max-height: 350px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  max-width: 85%;
+}
+
+.bot-msg {
+  background: #e9ecef;
+  color: var(--text-dark);
+  border-bottom-left-radius: 0;
+}
+
+.user-msg {
+  background: var(--primary);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 0;
+}
+
+.chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.chat-option-btn {
+  background: white;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 8px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.chat-option-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+  .hero-section {
+    text-align: center;
+    padding-top: 100px;
+  }
+  .hero-features { justify-content: center; }
+  .floating-container { bottom: 20px; right: 20px; }
+  .chat-window { width: 300px; right: 20px; bottom: 90px; }
+}
