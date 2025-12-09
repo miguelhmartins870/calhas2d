@@ -2,8 +2,8 @@ import makeWASocket, { useMultiFileAuthState } from "@whiskeysockets/baileys";
 import Imap from "imap";
 import { simpleParser } from "mailparser";
 
-const EMAIL = "seuemail@gmail.com";
-const PASSWORD = "sua_senha_app";
+const EMAIL = "miguelhmartins870@gmail.com";
+const PASSWORD = "miguel1020";
 
 async function startBot() {
     const { state, saveCreds } = await useMultiFileAuthState("auth");
@@ -81,5 +81,6 @@ function extrair(texto, campo) {
     const m = regex.exec(texto);
     return m ? m[1].trim() : "";
 }
+
 
 startBot();
