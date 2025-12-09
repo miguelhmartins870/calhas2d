@@ -1,9 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.0",
-    "imap": "^0.8.19",
-    "mailparser": "^3.6.8"
-  }
-
-}
